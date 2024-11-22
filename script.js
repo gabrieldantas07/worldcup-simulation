@@ -190,10 +190,15 @@ function advanceStage() {
 }
 
 function reset() {
+  // Reinicia a fase e os resultados
   currentStage = "oitavas";
   results = [];
-  teams.length = 0;
-  teams = getRandomTeams(allTeams); // Redefine 16 novas equipes ao reiniciar
+
+  // Restaura os times fixos e aleatórios
+  const randomTeams = getRandomTeams(allTeams); // Obtem novos 10 times aleatórios
+  teams = [...fixedTeams, ...randomTeams]; // Combina fixos com aleatórios
+
+  // Atualiza as telas
   homeScreen.classList.remove("hidden");
   matchScreen.classList.add("hidden");
   finalScreen.classList.add("hidden");
