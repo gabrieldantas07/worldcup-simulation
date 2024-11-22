@@ -176,6 +176,9 @@ function advanceStage() {
     finalScreen.classList.remove("hidden");
     winnerFlag.src = `img/${winner.toLowerCase().replace(/\s+/g, '-')}.png`;
     champion.textContent = `CAMPEÃO: ${winner}`;
+
+    // Soltar fogos ao anunciar o campeão
+    launchFireworks();  
     return;
   }
 
@@ -202,4 +205,40 @@ function reset() {
   homeScreen.classList.remove("hidden");
   matchScreen.classList.add("hidden");
   finalScreen.classList.add("hidden");
+
+  // Limpa os jogos anteriores
+  matches = [];
+  matchesContainer.innerHTML = "";
 }
+
+  function launchFireworks() {
+    const duration = 5 * 1000; // Duração em milissegundos (5 segundos)
+    const animationEnd = Date.now() + duration;
+    const colors = ['#bb0000', '#ffffff', '#00bb00', '#0000bb'];
+  
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+  
+    const interval = setInterval(() => {
+      const timeLeft = animationEnd - Date.now();
+  
+      if (timeLeft <= 0) {
+        clearInterval(interval);
+        return;
+      }
+  
+      // Dispara partículas
+      confetti({
+        particleCount: 50, // Quantidade de partículas
+        startVelocity: 30, // Velocidade inicial
+        spread: 360, // Ângulo de dispersão
+        ticks: 60, // Duração da partícula
+        origin: {
+          x: randomInRange(0.1, 0.9), // Posição X aleatória
+          y: Math.random() - 0.2 // Posição Y
+        },
+        colors: colors // Cores
+      });
+    }, 250); // Intervalo entre cada disparo
+  }
