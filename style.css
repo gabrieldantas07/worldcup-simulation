@@ -30,19 +30,20 @@ h2 {
 }
 
 button {
-  background-color: #cb61d1;
-  border: none;
+  background-color: transparent;
+  border: 2px solid #189f38;
+  color: #189f38;
+ 
   padding: 10px 14px;
-  color: white;
+ 
   font-size: 0.9rem; /* Fonte reduzida */
   margin: 10px 0; /* Melhor espaçamento em telas pequenas */
-  border-radius: 5px;
+  border-radius: 30px;
   cursor: pointer;
+  
 }
 
-button:hover {
-  background-color: #7c65f0;
-}
+
 
 #matches {
   display: flex;
@@ -97,12 +98,42 @@ button:hover {
   border-radius: 3px;
 }
 
-#simulate-games, #advance, #reset {
-  background-color: #22a3d6;
+#random-simulation{
+  background-color: transparent;
+  border: 2px solid #2fc9f4;
+  color: #2fc9f4;
 }
 
-#simulate-games:hover, #advance:hover, #reset:hover {
-  background-color: #22a3d6;
+#manual-simulation{
+  background-color: transparent;
+  border: 2px solid #d02df0;
+  color: #d02df0;
+}
+
+#simulate-games {
+  background-color: transparent;
+  border: 2px solid #c722d6;
+  color: #c722d6;
+}
+
+#advance{
+  background-color: transparent;
+  border: 2px solid #189f38;
+  color: #189f38;
+  
+}
+
+#restart{
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+#reset{
+  background-color: transparent;
+  border: 2px solid #22a3d6;
+  color: #22a3d6;
+  
 }
 
 .trophy {
